@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>绍兴欣瑄环境科技有限公司 | 环境服务 · 智能科技</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1c14;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #d8f3dc;
+    --gold: #b7791f;
+    --cream: #f6f9f6;
+    --mist: #dde8de;
+    --charcoal: #2a3528;
+    --text-muted: #5a6e5c;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Noto Sans SC',sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.1rem 4rem;
+    background:rgba(246,249,246,0.93);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--mist);
+  }
+  .logo { font-family:'Noto Serif SC',serif; font-size:1.15rem; font-weight:700; color:var(--ink); text-decoration:none; letter-spacing:0.06em; }
+  .logo span { color:var(--green-light); }
+  nav ul { list-style:none; display:flex; gap:2.5rem; }
+  nav a { text-decoration:none; color:var(--charcoal); font-size:0.85rem; letter-spacing:0.05em; transition:color .2s; }
+  nav a:hover { color:var(--green-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:100vh; padding-top:72px;
+    display:grid; grid-template-columns:1fr 1fr;
+    position:relative; overflow:hidden;
+  }
+  .hero-left {
+    display:flex; flex-direction:column; justify-content:center;
+    padding:6rem 3rem 6rem 4rem;
+    background:var(--cream);
+  }
+  .hero-tag {
+    font-size:0.72rem; letter-spacing:0.22em; color:var(--green-light);
+    text-transform:uppercase; margin-bottom:1.4rem;
+    display:flex; align-items:center; gap:.75rem;
+  }
+  .hero-tag::before { content:''; display:block; width:2rem; height:1px; background:var(--green-light); }
+  h1 {
+    font-family:'Noto Serif SC',serif;
+    font-size:clamp(2.2rem,3.8vw,3.4rem);
+    line-height:1.25; font-weight:700; margin-bottom:1.4rem;
+  }
+  h1 em { font-style:normal; color:var(--green-light); }
+  .hero-desc { font-size:.95rem; line-height:2; color:var(--text-muted); max-width:420px; margin-bottom:2.5rem; }
+  .btn-group { display:flex; gap:1rem; }
+  .btn-primary {
+    display:inline-block; padding:.85rem 2rem;
+    background:var(--green); color:#fff;
+    font-size:.875rem; letter-spacing:.08em;
+    text-decoration:none; border:1px solid var(--green);
+    transition:all .25s;
+  }
+  .btn-primary:hover { background:var(--green-light); border-color:var(--green-light); }
+  .btn-outline {
+    display:inline-block; padding:.85rem 2rem;
+    background:transparent; color:var(--green);
+    font-size:.875rem; letter-spacing:.08em;
+    text-decoration:none; border:1px solid var(--green);
+    transition:all .25s;
+  }
+  .btn-outline:hover { background:var(--green); color:#fff; }
+
+  .hero-right {
+    background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .hero-right::before {
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(64,145,108,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(64,145,108,.06) 1px,transparent 1px);
+    background-size:48px 48px;
+  }
+  /* 圆形动效 */
+  .hero-visual { position:relative; width:300px; height:300px; }
+  .circle-outer {
+    position:absolute; inset:0;
+    border:1px solid rgba(64,145,108,.25); border-radius:50%;
+    animation:spin 22s linear infinite;
+  }
+  .circle-mid {
+    position:absolute; inset:44px;
+    border:1px solid rgba(64,145,108,.12); border-radius:50%;
+    animation:spin 15s linear infinite reverse;
+  }
+  .circle-inner {
+    position:absolute; inset:88px;
+    border:2px solid var(--green-light); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:4px;
+  }
+  .circle-icon { font-size:2.2rem; }
+  .circle-text { font-family:'Noto Serif SC',serif; font-size:.8rem; color:var(--green-light); letter-spacing:.15em; }
+  .dot { position:absolute; width:7px; height:7px; background:var(--green-light); border-radius:50%; }
+  .dot-1 { top:8px; left:50%; transform:translateX(-50%); }
+  .dot-2 { bottom:8px; left:50%; transform:translateX(-50%); }
+  .dot-3 { left:8px; top:50%; transform:translateY(-50%); }
+  .dot-4 { right:8px; top:50%; transform:translateY(-50%); }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  /* ── STATS ── */
+  .stats {
+    background:var(--green); color:#fff;
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .stat { padding:2.2rem 1.5rem; text-align:center; border-right:1px solid rgba(255,255,255,.12); }
+  .stat:last-child { border-right:none; }
+  .stat-num { font-family:'Noto Serif SC',serif; font-size:1.9rem; font-weight:700; color:#fff; display:block; margin-bottom:.3rem; }
+  .stat-label { font-size:.75rem; color:rgba(255,255,255,.6); letter-spacing:.1em; }
+
+  /* ── SECTIONS ── */
+  section { padding:5.5rem 4rem; }
+  .section-header { text-align:center; margin-bottom:3.5rem; }
+  .section-tag { font-size:.72rem; letter-spacing:.22em; color:var(--green-light); text-transform:uppercase; margin-bottom:.9rem; }
+  h2 { font-family:'Noto Serif SC',serif; font-size:clamp(1.7rem,2.8vw,2.4rem); font-weight:700; line-height:1.3; }
+  .section-sub { color:var(--text-muted); margin-top:.6rem; font-size:.9rem; }
+
+  /* ── 业务板块 ── */
+  .services { background:#fff; }
+  .services-grid {
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:1px; background:var(--mist); border:1px solid var(--mist);
+    max-width:1100px; margin:0 auto;
+  }
+  .service-card { background:#fff; padding:2.2rem 1.8rem; transition:background .25s; }
+  .service-card:hover { background:var(--cream); }
+  .service-icon { font-size:1.8rem; margin-bottom:1rem; display:block; }
+  .service-num { display:block; font-size:.68rem; letter-spacing:.22em; color:var(--green-light); margin-bottom:.8rem; }
+  .service-card h3 { font-family:'Noto Serif SC',serif; font-size:1.05rem; font-weight:600; margin-bottom:.65rem; }
+  .service-card p { font-size:.85rem; color:var(--text-muted); line-height:1.85; }
+  /* 核心标签 */
+  .badge {
+    display:inline-block; margin-top:.75rem;
+    padding:.2rem .6rem; font-size:.68rem; letter-spacing:.08em;
+    background:var(--green-pale); color:var(--green);
+    border-radius:2px;
+  }
+
+  /* ── 标书优势 ── */
+  .bid-section { background:var(--ink); color:#fff; }
+  .bid-section h2 { color:#fff; }
+  .bid-section .section-sub { color:rgba(255,255,255,.5); }
+  .bid-grid {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:2rem;
+    max-width:900px; margin:0 auto;
+  }
+  .bid-card {
+    border:1px solid rgba(64,145,108,.3);
+    padding:2rem 1.8rem; position:relative;
+    transition:border-color .25s;
+  }
+  .bid-card:hover { border-color:var(--green-light); }
+  .bid-card h4 { font-family:'Noto Serif SC',serif; font-size:1rem; font-weight:600; color:#fff; margin-bottom:.75rem; display:flex; align-items:center; gap:.6rem; }
+  .bid-card p { font-size:.85rem; color:rgba(255,255,255,.55); line-height:1.85; }
+  .bid-num { position:absolute; top:1.2rem; right:1.5rem; font-size:.65rem; color:rgba(64,145,108,.5); letter-spacing:.12em; }
+
+  /* ── 关于 ── */
+  .about { background:var(--cream); }
+  .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; max-width:1100px; margin:0 auto; }
+  .about-text h2 { margin-bottom:1.2rem; }
+  .about-text p { color:var(--text-muted); line-height:2; margin-bottom:.9rem; font-size:.9rem; }
+  .about-highlights { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.8rem; }
+  .highlight { border-left:2px solid var(--green-light); padding-left:1rem; }
+  .highlight strong { display:block; font-size:.85rem; margin-bottom:.2rem; }
+  .highlight span { font-size:.78rem; color:var(--text-muted); }
+  .about-card {
+    background:var(--green); padding:2.5rem;
+    color:#fff; position:relative; overflow:hidden;
+  }
+  .about-card::before {
+    content:'欣瑄'; font-family:'Noto Serif SC',serif;
+    font-size:8rem; font-weight:700;
+    color:rgba(255,255,255,.05);
+    position:absolute; bottom:-1rem; right:-.5rem;
+    line-height:1;
+  }
+  .info-row { display:flex; gap:1rem; margin-bottom:1.2rem; align-items:flex-start; }
+  .info-row span:first-child { font-size:.75rem; color:rgba(255,255,255,.5); letter-spacing:.1em; flex-shrink:0; padding-top:.1rem; min-width:4rem; }
+  .info-row span:last-child { font-size:.9rem; color:#fff; line-height:1.7; }
+
+  /* ── 联系 ── */
+  .contact { background:#fff; }
+  .contact-grid {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;
+    max-width:1100px; margin:2.5rem auto 0;
+  }
+  .contact-item {
+    border:1px solid var(--mist); padding:2rem 1.5rem;
+    text-align:center; transition:border-color .25s;
+  }
+  .contact-item:hover { border-color:var(--green-light); }
+  .ci-icon { font-size:1.5rem; margin-bottom:.75rem; display:block; }
+  .ci-label { font-size:.72rem; letter-spacing:.15em; color:var(--green-light); margin-bottom:.4rem; display:block; }
+  .ci-val { font-size:.9rem; color:var(--charcoal); }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--ink); color:rgba(255,255,255,.35);
+    text-align:center; padding:1.5rem;
+    font-size:.78rem; letter-spacing:.05em;
+  }
+  footer span { color:var(--green-light); }
+
+  /* ── 动画 ── */
+  .fade-up { opacity:0; transform:translateY(20px); animation:fadeUp .7s ease forwards; }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+  .d1 { animation-delay:.1s; } .d2 { animation-delay:.25s; } .d3 { animation-delay:.4s; }
+
+  @media(max-width:768px){
+    nav { padding:1rem 1.5rem; }
+    nav ul { display:none; }
+    .hero { grid-template-columns:1fr; }
+    .hero-right { height:260px; }
+    .hero-left { padding:3rem 1.5rem; }
+    section { padding:3.5rem 1.5rem; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+    .services-grid,.bid-grid,.about-inner,.contact-grid { grid-template-columns:1fr; }
+    .about-inner { gap:2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav>
+  <a href="#" class="logo">绍兴<span>欣瑄</span>环境科技</a>
+  <ul>
+    <li><a href="#services">业务</a></li>
+    <li><a href="#bid">投标优势</a></li>
+    <li><a href="#about">关于</a></li>
+    <li><a href="#contact">联系</a></li>
+  </ul>
+</nav>
+
+<!-- 英雄 -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag fade-up">绍兴欣瑄环境科技有限公司</p>
+    <h1 class="fade-up d1">
+      <em>环境服务</em>与<br>智能科技融合
+    </h1>
+    <p class="hero-desc fade-up d2">
+      专注于城市环卫、垃圾清运、废弃物处理及AI技术应用，
+      以智能化手段提升环境服务效率，助力城乡环境品质持续改善。
+    </p>
+    <div class="btn-group fade-up d3">
+      <a href="#services" class="btn-primary">业务范围</a>
+      <a href="#contact" class="btn-outline">联系我们</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="circle-outer">
+        <div class="dot dot-1"></div>
+        <div class="dot dot-2"></div>
+        <div class="dot dot-3"></div>
+        <div class="dot dot-4"></div>
+      </div>
+      <div class="circle-mid"></div>
+      <div class="circle-inner">
+        <span class="circle-icon">🌿</span>
+        <span class="circle-text">欣瑄</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数字 -->
+<div class="stats">
+  <div class="stat">
+    <span class="stat-num">环卫</span>
+    <span class="stat-label">清运服务</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">AI</span>
+    <span class="stat-label">智能科技赋能</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">无人机</span>
+    <span class="stat-label">智能巡检作业</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">绍兴</span>
+    <span class="stat-label">越城区注册企业</span>
+  </div>
+</div>
+
+<!-- 业务 -->
+<section class="services" id="services">
+  <div class="section-header">
+    <p class="section-tag">Business Scope</p>
+    <h2>核心业务范围</h2>
+    <p class="section-sub">环境服务与科技应用双轮驱动</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <span class="service-icon">🚛</span>
+      <h3>城市垃圾清运服务</h3>
+      <p>承接城市生活垃圾、建筑垃圾及工业废弃物的收集、运输与处置业务，配备专业清运车辆，满足政府及企业招标要求。</p>
+      <span class="badge">可参与政府招标</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <span class="service-icon">🧹</span>
+      <h3>环卫保洁外包服务</h3>
+      <p>提供道路清扫、公共区域保洁、绿化养护等综合环卫服务，适用于工业园区、住宅小区及市政道路环卫外包项目。</p>
+      <span class="badge">可参与政府招标</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <span class="service-icon">♻️</span>
+      <h3>废弃物处理与资源化</h3>
+      <p>对工业废弃物、危废边角料进行合规收集处理，结合再生利用技术实现废弃物资源化，帮助企业合规降本。</p>
+      <span class="badge">合规处置</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <span class="service-icon">🚁</span>
+      <h3>无人机环境巡检</h3>
+      <p>利用无人机对河道、农田、工业区进行航拍巡查与环境监测，提升巡检效率，适用于环保督察及生态保护项目。</p>
+      <span class="badge">智能化作业</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <span class="service-icon">🤖</span>
+      <h3>AI智能车载系统</h3>
+      <p>自主研发跨品牌手机车机互联及AI语音助手系统，面向新能源汽车车主提供智能驾驶体验升级服务与软件订阅。</p>
+      <span class="badge">自研产品</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <span class="service-icon">💻</span>
+      <h3>软件开发与数字化服务</h3>
+      <p>提供企业管理软件、小程序及AI工具定制开发，涵盖AI标书辅助生成、业务数字化转型等综合技术服务。</p>
+      <span class="badge">AI赋能</span>
+    </div>
+  </div>
+</section>
+
+<!-- 投标优势 -->
+<section class="bid-section" id="bid">
+  <div class="section-header">
+    <p class="section-tag" style="color:var(--green-light)">Bidding Advantages</p>
+    <h2>政府项目投标优势</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.45)">满足环卫、清运类标书的核心资质与能力要求</p>
+  </div>
+  <div class="bid-grid">
+    <div class="bid-card">
+      <span class="bid-num">01</span>
+      <h4>🏢 正规注册企业</h4>
+      <p>工商营业执照齐全，注册于绍兴市越城区，具备合法经营资质，可出具正规合同及发票，满足政府招标基本要求。</p>
+    </div>
+    <div class="bid-card">
+      <span class="bid-num">02</span>
+      <h4>📋 业务范围覆盖广</h4>
+      <p>营业执照经营范围包含废弃物收集处理、环境服务、无人机运营及AI技术开发，可参与多类环保及科技项目投标。</p>
+    </div>
+    <div class="bid-card">
+      <span class="bid-num">03</span>
+      <h4>🤖 智能化作业能力</h4>
+      <p>具备无人机巡检、AI辅助管理等智能化服务能力，在同等条件下为标书增加差异化竞争优势，提升中标率。</p>
+    </div>
+    <div class="bid-card">
+      <span class="bid-num">04</span>
+      <h4>📊 AI标书辅助系统</h4>
+      <p>自主研发AI标书助手，可快速生成符合招标要求的投标文件，降低标书编制成本，提升响应速度与文件质量。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 关于 -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-tag">About Us</p>
+      <h2>关于欣瑄环境科技</h2>
+      <p>绍兴欣瑄环境科技有限公司成立于2026年3月，注册地为绍兴市越城区，是一家致力于环境服务与智能科技融合的创新型企业。</p>
+      <p>公司以城市垃圾清运、环卫保洁为核心业务，同步布局AI技术开发、无人机应用及软件服务，探索以数字化手段提升传统环保行业效率。</p>
+      <p>我们积极参与政府环卫项目投标，同时面向企业与个人用户提供智能科技产品，构建环保+科技双轮驱动的业务生态。</p>
+      <div class="about-highlights">
+        <div class="highlight">
+          <strong>环境服务</strong>
+          <span>清运·保洁·废弃物处理</span>
+        </div>
+        <div class="highlight">
+          <strong>智能科技</strong>
+          <span>AI·无人机·软件开发</span>
+        </div>
+        <div class="highlight">
+          <strong>绍兴越城区</strong>
+          <span>2026年3月正式注册</span>
+        </div>
+        <div class="highlight">
+          <strong>持续创新</strong>
+          <span>以技术驱动服务升级</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-card">
+      <div class="info-row">
+        <span>公司名称</span>
+        <span>绍兴欣瑄环境科技有限公司</span>
+      </div>
+      <div class="info-row">
+        <span>成立日期</span>
+        <span>2026年3月20日</span>
+      </div>
+      <div class="info-row">
+        <span>注册地址</span>
+        <span>浙江省绍兴市越城区柯桥街道上虞路110号</span>
+      </div>
+      <div class="info-row">
+        <span>统一信用</span>
+        <span>91330602MAK92A91</span>
+      </div>
+      <div class="info-row">
+        <span>经营范围</span>
+        <span>废弃物收集、环境服务、无人机运营、AI技术开发、软件开发与服务</span>
+      </div>
+      <div class="info-row">
+        <span>登记机关</span>
+        <span>绍兴市越城区市场监督管理局</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section class="contact" id="contact">
+  <div class="section-header">
+    <p class="section-tag">Contact</p>
+    <h2>联系我们</h2>
+    <p class="section-sub">商务合作 · 项目投标 · 技术咨询</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <span class="ci-icon">📍</span>
+      <span class="ci-label">注册地址</span>
+      <span class="ci-val">浙江省绍兴市越城区<br>柯桥街道上虞路110号</span>
+    </div>
+    <div class="contact-item">
+      <span class="ci-icon">📞</span>
+      <span class="ci-label">联系电话</span>
+      <span class="ci-val">黄先生<br>13655854867</span>
+    </div>
+    <div class="contact-item">
+      <span class="ci-icon">📧</span>
+      <span class="ci-label">联系邮箱</span>
+      <span class="ci-val">13655854867@163.com</span>
+    </div>
+    <div class="contact-item">
+      <span class="ci-icon">🌐</span>
+      <span class="ci-label">官方网站</span>
+      <span class="ci-val">www.xinxuan-eco.cn</span>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  © 2026 <span>绍兴欣瑄环境科技有限公司</span> · 统一信用代码：91330602MAK92A91 · 浙江省绍兴市越城区
+</footer>
+
+</body>
+</html>
